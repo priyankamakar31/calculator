@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>
+            mario game 
+        </title>
+        <style>
+          .main{
+            width: 3700px;
+            height: 414px;
+          } 
+          .mario{
+            /* position: absolute; */ 
+            z-index: 2;
+            margin-top: 510px;
+            animation: move 5s infinite;
+            position: fixed;
+            /* position: relative; */
+          }
+          .img1{
+            position: absolute;
+            z-index: 1;
+          }
+          @keyframes move {
+0%{ top: 0px; left: 0px;}
+ 7%{ top: -180px; left: 600px} 
+ 14%{ top: -250px; left: 730px}
+ 21%{ top: -290px; left: 950px}
+ 28%{ top: -180px; left: 1150px}    
+ 35%{ top: -150px; left: 1250px}  
+ 42%{ top: -340px; left: 1370px} 
+ 49%{ top: -90px; left: 1500px}
+
+            
+          }
+
+        </style>
+    </head>
+    <body>
+        <div class="main">
+          
+    <img class="mario" src="../img/mp.png">
+
+    <img  class=" img1" src="../img/mc1.png">
+
+
+    <img src="../img/mc7 - Copy.png" style=" margin-left: -4px;">
+
+
+    <img src="../img/mc3.jpg" style=" margin-left: -4px;">
+
+
+    <img src="../img/mc4.jpg" style=" margin-left: -4px;">
+
+
+    <img src="../img/mc5.jpg" style=" margin-left: -4px;">
+
+
+    <img src="../img/mc6.jpg" style=" margin-left: -4px;">
+</div>
+
+        
+    </body>
+</html>
