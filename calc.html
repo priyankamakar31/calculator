@@ -46,35 +46,156 @@ font-size: large;
         }
         .btn2:hover{
             background-color: grey;
-        }
-        
+        } 
 
     </style>
+    <script>
+        function test1(){
+        let text = "120+545";
+        let result = text.includes("-");
+        console .log(result);}
+
+function fillText(obj) {
+                let thisValue = obj.innerText;
+                let alreadyValue = document.getElementById('calcText').value;
+                let concatenate = alreadyValue + thisValue;
+                document.getElementById('calcText').value = concatenate;
+                
+            }
+
+            function deletechar() {
+                let textBoxValue = document.getElementById('calcText').value;
+                let textLenth = textBoxValue.length;
+                console.log(textLenth);
+                let finalText = textBoxValue.slice(0, textLenth-1);
+                document.getElementById('calcText').value = finalText;
+            }
+      
+            function calcsum(){
+                let number=document.getElementById('calcText').value;
+                let value=number.split("+");
+                const sum= parseInt(value[0])+ parseInt(value[1]);
+                document.getElementById('calcText').value = sum;
+            }
+            function calcsub(){
+                let number=document.getElementById('calcText').value;
+                let value=number.split("-");
+                const sub = parseInt(value[0])- parseInt(value[1]);
+                document.getElementById('calcText').value = sub;
+            }
+            function calcmul(){
+                let number=document.getElementById('calcText').value;
+                let value=number.split("×");
+                const mul = parseInt(value[0])* parseInt(value[1]);
+                document.getElementById('calcText').value = mul;
+            }
+            function calcdiv(){
+                let number=document.getElementById('calcText').value;
+                let value=number.split("÷");
+                const div =parseInt(value[0]) / parseInt(value[1]);
+                document.getElementById('calcText').value = div;
+            }
+           
+            function find()
+            {
+           let text = document.getElementById('calcText').value;
+        //    let result = text.includes("+");
+      
+                     if(text.includes("+")){
+                     calcsum();
+}
+else if(text.includes("-"))
+{
+                     calcsub();
+}
+else if(text.includes("×"))
+{
+                     calcmul();
+}
+else if(text.includes("÷"))
+{
+                     calcdiv();
+}
+}
+
+// function find1(){
+//            let text1 = document.getElementById('calText').value;
+//            let result1 = text1.includes("-");
+        
+// if(result1=="true"){
+//     calcsub();
+// }
+// }}
+
+
+// sum function with specific value 
+        function sum (){
+        let text ="347+900";
+let value=text.split("+");
+   console.log(value[0]);
+  console.log(value[1]);
+ console.log(value[0]+value[1]);
+ const sum= parseInt(value[0])+ parseInt(value[1]);
+ console.log('the sum of two numbers is '+sum);
+}
+// sub function with specific value 
+function sub(){
+        let text ="347- 900";
+let value=text.split("-");
+   console.log(value[0]);
+  console.log(value[1]);
+//  console.log(value[0]-value[1]);
+ const sub= parseInt(value[0])- parseInt(value[1]);
+ console.log('the sub of two numbers is '+sub);
+}
+// mul function with specific value 
+function mul (){
+        let text ="347*900";
+let value=text.split("*");
+   console.log(value[0]);
+  console.log(value[1]);
+//  console.log(value[0]+value[1]);
+ const mul= parseInt(value[0])* parseInt(value[1]);
+ console.log('the mul of two numbers is '+mul);
+}
+// div function with specific value 
+function div (){
+        let text ="347/900";
+let value=text.split("/");
+   console.log(value[0]);
+  console.log(value[1]);
+//  console.log(value[0]+value[1]);
+ const div= parseInt(value[0])/ parseInt(value[1]);
+ console.log('the div of two numbers is '+div);
+}
+
+</script>
 </head>
-<body>
+<body  onload="find()" >
+   
     <div class="main">
-<input class="textbox" type="text">    
-<div class="btns"> 
+<input class="textbox" type="text" id="calcText">    
+<div > 
     <button class="btn1">%</button>
     <button class="btn1">CE</button>
     <button class="btn1">C</button>
-    <button class="btn1">	&#x232b;</button>
-    <button class="btn1">7</button>
-    <button class="btn1">8</button>
-    <button class="btn1">9</button>
-    <button class="btn1">&#247;</button>
-    <button class="btn1">4</button>
-    <button class="btn1">5</button>
-    <button class="btn1">6</button>
-    <button class="btn1">	&times;</button>
-    <button class="btn1">1</button>
-    <button class="btn1">2</button>
-    <button class="btn1">3</button>
-    <button class="btn1">-</button>
-    <button class="btn2">=</button>
-    <button class="btn1">0</button>
-    <button class="btn1">.</button>
-    <button class="btn1">+</button>
+    <button class="btn1"onclick="deletechar()">	&#x232b;</button>
+    <button class="btn1"onclick="fillText(this)">7</button>
+    <button class="btn1" onclick="fillText(this)">8</button>
+    <button class="btn1"onclick="fillText(this)">9</button>
+    <button class="btn1"onclick="fillText(this)">&#247;</button>
+    <button class="btn1"onclick="fillText(this)">4</button>
+    <button class="btn1"onclick="fillText(this)">5</button>
+    <button class="btn1"onclick="fillText(this)">6</button>
+    <button class="btn1"onclick="fillText(this)">	&times;</button>
+    <button class="btn1" onclick="fillText(this)">1</button>
+    <button class="btn1"onclick="fillText(this)">2</button>
+    <button class="btn1"onclick="fillText(this)">3</button>
+    <button class="btn1"onclick="fillText(this)">-</button>
+    <button class="btn2"onclick="find()">=</button>
+    <button class="btn1"onclick="fillText(this)">0</button>
+    <button class="btn1"onclick="fillText(this)">.</button>
+    <button class="btn1"onclick="fillText(this)">+</button>
     
 </div>
     </div>
