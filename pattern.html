@@ -1,0 +1,244 @@
+<html>
+    <head>
+        <title>
+            on click colour changes of our house
+        </title>
+        <style>
+            .home{
+                width: 800px;
+                height: 50px;
+                border: 2px solid black ;
+                background-color: wheat;
+                margin-top: 100px;
+                margin-left: 200px ;
+            }
+            .main{
+                width: 700px ;
+                height: 400px ;
+                border: 2px dotted black ;
+                background-color: wheat;
+                margin-left: 250px ;
+            }
+            .window{
+                width: 200px ;
+                height: 100px;
+                border: 2px solid black ;
+                background-color: wheat;
+                margin-top: 150px;
+                margin-left:400px  ;
+            }
+            .door{
+                width: 120px ;
+                height: 225px ;
+                border: 2px solid black ;
+                background-color: wheat;
+                margin-top:-80px ;
+                margin-left: 70px;
+            }
+            .handle{
+                width: 20px;
+                height: 100px;
+                border: 1px dashed black ;
+                background-color: wheat;
+                margin-top: 70px ;
+                margin-left: 20px;
+            }
+.home>p{
+    font-size: 40px;
+    font-weight: 800;
+    color: red;
+    text-align: center;
+   margin-top: 3px;
+
+}
+.ceiling{
+    width: 700px;
+    height: 50px;
+    /* border: 1px solid black ; */
+    margin-top: 50px ;
+    margin-left: 320px;
+}
+.ceiling>p{
+    font-size: 20px;
+    font-weight: 800;
+    color: brown; 
+    /* margin-top: -10px; */
+}
+.wall-color{
+    width: 700px;
+    height: 50px;
+    /* border: 1px solid black ; */
+    margin-top: 50px ;
+    margin-left: 320px;
+}
+.wall-color>p{
+    font-size: 20px;
+    font-weight: 800;
+    color: brown; 
+    /* margin-top: -10px; */
+}
+.door-color{
+    width: 700px;
+    height: 50px;
+    /* border: 1px solid black ; */
+    margin-top: 50px ;
+    margin-left: 320px;
+}
+.door-color>p{
+    font-size: 20px;
+    font-weight: 800;
+    color: brown; 
+    /* margin-top: -10px; */
+}
+.window-color{
+    width: 700px;
+    height: 50px;
+    /* border: 1px solid black ; */
+    margin-top: 50px ;
+    margin-left: 320px;
+}
+.window-color>p{
+    font-size: 20px;
+    font-weight: 800;
+    color: brown; 
+    /* margin-top: -10px; */
+}
+.circle1{
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    /* background-color: blue; */
+    margin-top: -50px;
+    /* margin-left: 120px; */
+  
+}
+.text>p{
+font-size: 30px;
+font-weight: 800;
+text-align: center;
+margin-top: 80px;
+color: green;
+}
+        </style>
+        <script>
+            function f1(){
+                document.getElementById("h1").style.background="blue";
+            }
+            function f2(){
+                document.getElementById("h1").style.background="palevioletred";
+            }
+            function f3(){
+                document.getElementById("h1").style.background="red";
+            }
+            function f4(){
+                document.getElementById("h1").style.background="brown";
+            }
+            function f5(){
+                document.getElementById("h1").style.background="green";
+            }
+            function f6(){
+                document.getElementById("h1").style.background="yellowgreen";
+            }
+            function fmm1(){
+                document.getElementById("m1").style.background="blue";
+            }
+            function fmm2(){
+                document.getElementById("m1").style.background="palevioletred";
+            }
+            function fmm3(){
+                document.getElementById("m1").style.background="red";
+            }
+            function fmm4(){
+                document.getElementById("m1").style.background="brown";
+            }
+            function fmm5(){
+                document.getElementById("m1").style.background="green";
+            }
+            function fmm6(){
+                document.getElementById("m1").style.background="yellowgreen";
+            }
+            function fdd1(){
+                document.getElementById("d1").style.background="blue";
+            }
+            function fdd2(){
+                document.getElementById("d1").style.background="palevioletred";
+            }
+            function fdd3(){
+                document.getElementById("d1").style.background="red";
+            }
+            function fdd4(){
+                document.getElementById("d1").style.background="brown";
+            }
+            function fdd5(){
+                document.getElementById("d1").style.background="green";
+            }
+            function fdd6(){
+                document.getElementById("d1").style.background="yellowgreen";
+            }
+            function fww1(){
+                document.getElementById("w1").style.background="blue";
+            }
+            function fww2(){
+                document.getElementById("w1").style.background="palevioletred";
+            }
+            function fww3(){
+                document.getElementById("w1").style.background="red";
+            }
+            function fww4(){
+                document.getElementById("w1").style.background="brown";
+            }
+            function fww5(){
+                document.getElementById("w1").style.background="green";
+            }
+            function fww6(){
+                document.getElementById("w1").style.background="yellowgreen";
+            }
+        </script>
+    </head>
+    <body>
+        <div class="home" id="h1"><p>HOME</p></div>
+        <div class="main" id="m1">
+        <div class="window" id="w1"></div>
+        <div class="door" id="d1">
+            <div class ="handle"></div>
+        </div>
+    </div>
+ <div class="text"><p> CHOOSE COLOR</p></div>
+    <div class="ceiling">
+        <p>CEILING</p>
+        <div class="circle1" onclick="f1()" style=" background-color: blue; margin-left: 120px;"></div>
+        <div class="circle1" onclick="f2()" style=" background-color: palevioletred; margin-left: 200px;"></div>
+        <div   class="circle1" onclick="f3()" style="   background-color: red; margin-left:280px ;"></div>
+        <div  class="circle1" onclick="f4()" style="  background-color: brown; margin-left: 360px;"></div>
+        <div  class="circle1" onclick="f5()" style="    background-color: green; margin-left: 440px ;"></div>
+        <div  class="circle1" onclick="f6()" style="  background-color: yellowgreen; margin-left:520px ;"></div>
+    </div>
+    <div class="wall-color">
+        <p>WALL</p>
+        <div class="circle1"onclick="fmm1()"   style=" background-color: blue; margin-left: 120px;"></div>
+        <div class="circle1"  onclick="fmm2()" style=" background-color: palevioletred; margin-left: 200px;"></div>
+        <div   class="circle1" onclick="fmm3()" style="   background-color: red; margin-left:280px ;"></div>
+        <div  class="circle1"  onclick="fmm4()" style="  background-color: brown; margin-left: 360px;"></div>
+        <div  class="circle1" onclick="fmm5()"  style="    background-color: green; margin-left:440px ;"></div>
+        <div  class="circle1"  onclick="fmm6()" style="  background-color: yellowgreen; margin-left:520px ;"></div>
+    </div>
+    <div class="door-color">
+        <p>DOOR</p>
+        <div class="circle1" onclick="fdd1()"  style=" background-color: blue; margin-left: 120px;"></div>
+        <div class="circle1"  onclick="fdd2()" style=" background-color: palevioletred;margin-left: 200px;"></div>
+        <div   class="circle1" onclick="fdd3()" style="   background-color: red; margin-left:280px ;"></div>
+        <div  class="circle1"  onclick="fdd4()" style="  background-color: brown; margin-left: 360px;"></div>
+        <div  class="circle1" onclick="fdd5()" style="    background-color: green; margin-left:440px ;"></div>
+        <div  class="circle1"  onclick="fdd6()" style="  background-color: yellowgreen; margin-left:520px ;"></div>
+    </div>
+    <div class="window-color">
+        <p>WINDOW</p>
+        <div class="circle1"onclick="fww1()"  style=" background-color: blue; margin-left: 120px;"></div>
+        <div class="circle1" onclick="fww2()"  style=" background-color: palevioletred;margin-left: 200px;"></div>
+        <div   class="circle1"  onclick="fww3()" style="   background-color: red; margin-left:280px ;"></div>
+        <div  class="circle1"   onclick="fww4()" style="  background-color: brown; margin-left: 360px;"></div>
+        <div  class="circle1" onclick="fww5()" style="    background-color: green; margin-left:440px ;"></div>
+        <div  class="circle1"  onclick="fww6()" style="  background-color: yellowgreen; margin-left:520px ;"></div>
+    </div>
+    </body>
+</html>
