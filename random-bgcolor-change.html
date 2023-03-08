@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>
+            random background colour chnage with time functions
+        </title>
+    </head>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            border: 2px solid black ;
+            background-color: aquamarine;
+        }
+    </style>
+    <script>
+// change background color using array
+let i = 0;
+let colors = ['yellow','blue', 'red', 'orange'];
+// Triggers every second
+function changeColor(){
+    document.getElementById("b1").style.backgroundColor = colors[i];
+    i++;
+    if(i>=colors.length){
+        i=0;  // Reset i to 0 if it exceeds colors length
+    }                                                                                               
+}
+setInterval(changeColor, 1000);
+// change background color by math function
+function changeColor(){
+    let randomColor = Math.floor(Math.random()*16777215).toString(16);
+    document.getElementById("b1").style.backgroundColor = '#'+randomColor;
+}
+setInterval(changeColor, 1000);
+
+    </script>
+    <body>
+
+        <div class="box" id="b1"></div>
+    </body>
+</html>
