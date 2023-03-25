@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <title>
+            jquery basics and events
+        </title>
+        <script
+  src="https://code.jquery.com/jquery-3.6.4.js"
+  integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+  crossorigin="anonymous"></script>
+    </head>
+    <body>
+<div id="t1"></div>
+<div class="c1"></div>
+<button class="assign"> assign a heading </button>
+<button class="hide">hide a heading</button>
+<button class="unhide">unhide a heading</button>
+<form id="f1">
+   <label >firstname</label> <input id="l1"type="text">
+   <label >lastname</label> <input id="l2"  type="text">
+   <button class="b1">submit</button>
+</form>
+<p>on double click it will disappear</p>
+<div id ="box" style="width: 50px; height: 50px ;
+background-color: black;"></div>
+<audio id ="sound">
+    <source src="background-music.mp3"type="audio/mp3" >
+</audio>
+<button >play sound
+
+</button>
+    </body>
+    <script>
+        $('#t1').text("good morning");
+        $('.c1').text("good afternoon");
+        // $('.c1').html("<h1>hello!!</h1><p> how are you</p>");
+        let htmltext="<h1>hello!!!</h1><p>how are you</p>";
+        $('.c1').html(htmltext);
+        $('document').ready(function()
+        {
+          //  alert("hi");
+        });
+        $('.assign').click(function(){
+            $('h1').html(htmltext);
+        });
+        $('.hide').click(function() {
+		$('h1').hide();
+	});
+	
+	$('.unhide').click(function() {
+		$('h1').show();
+	});
+    $(document).ready(function(){
+  $('.b1').click(function(){
+    alert(document.getElementById("l1").value + document.getElementById("l2").value);
+  });
+});
+$(document).ready(function(){
+  $("input").focus(function(){
+    $(this).css("background-color", "red");
+  });
+  $("input").blur(function(){
+    $(this).css("background-color", "cyan");
+  });
+});
+$(document).ready(function(){
+  $("p").dblclick(function(){
+    $(this).hide();
+  });
+});
+$(document).ready(function(){
+  $('#box').mouseenter(function(){
+    // function f1(){
+    //             document.getElementById("box").style.background="blue";
+    //         }
+    $(this).css("background-color", "green");
+  });
+});
+$(document).ready(function(){
+  $('#box').mouseleave(function(){
+    $(this).css("background-color", "pink");
+  });
+});
+$(document).ready(function(){
+  $("button").keypress(function(){
+    $('#sound').playAudioh();
+  });
+});
+
+    </script>
+</html> 1

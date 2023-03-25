@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <title>
+        ForEach with json data
+    </title>
+</head>
+<body>
+<div id="demo"></div>
+</body>
+<script>
+   const data =   [ {
+         "name": "Morpheush",
+         "job": "Leader",
+         "id": "199",
+         "createdAt": "2020-02-20T11:00:28.107Z"
+     },
+     {
+         "name": "Harish",
+         "job": "Leader",
+         "id": "199",
+         "createdAt": "2020-02-20T11:00:28.107Z"
+     }
+    ];
+   
+let html = "";
+data.forEach(element => {
+    html += "<table border=1>";
+    html += "<tr>";
+    html += "<td>" + element["name"] + "</td>";
+    html += "<td> Job : "+element['job']+"</td>";
+    html += "</tr>"
+    html += "</table>";
+    // html+= Object.values(element);//for all values to  be displayed
+    document.getElementById('demo').innerHTML = html;
+console.log(element["name"]);
+    
+});
+</script>
+</html>

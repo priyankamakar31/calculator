@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>
+            ajax with post method
+        </title>
+        <script
+        src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+        crossorigin="anonymous"></script>
+    </head>
+    <body>
+    </body>
+    <script>
+        $.ajax({
+    url: "http://localhost/priyanka/testdb.php",
+    type: "POST",
+    data: {
+        name: "muskan",
+        email:"muskan@gmail.com",
+        pass:"mus123",
+        phone:"86535595",
+        type:2,
+        status:1
+
+    },
+    success: function(response){
+        console.log(response);
+    }
+});
+    </script>
+    </html>

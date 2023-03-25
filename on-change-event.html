@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>
+            on change event
+        </title>
+    </head>
+    <body>
+        <select id="s1" onchange="my(this)">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+    </select>
+        <input type="text" id="t1">
+    </body>
+    <script>
+        function my(obj){
+            let x=document.getElementById("t1").value = obj.value;
+        }
+    </script>
+    </html>

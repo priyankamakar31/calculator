@@ -1,0 +1,156 @@
+<html>
+    <head>
+        <title>
+           using ajax
+        </title>
+        <script
+        src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+        crossorigin="anonymous"></script>
+    </head>
+    <body><div class="container" style="overflow-y: scroll; width: 50%; height: 600px;">
+        <div class="row">
+        <table id="datatable" border="1">
+
+        </table>
+        
+        <div id="data"></div>
+        </div>
+    </div>
+    <div class="container" style="margin-left: 65%;margin-top: -450px; height: 300px;width: 50%;">
+        <div class="row">
+        <div > 
+           
+                <label >symbol</label> <input id="l1"type="text"><br>
+                <label >baseasset</label> <input id="l2"  type="text"><br>
+                <label >quoteasset</label> <input id="l3"  type="text"><br>
+                <label >openprice</label> <input id="l4"  type="text"><br>
+                <label >lowprice</label> <input id="l5"  type="text"><br>
+                <label >highprice</label> <input id="l6"  type="text"><br>
+                <label >lastprice</label> <input id="l7"  type="text"><br>
+                <label >volume</label> <input id="l8"  type="text"><br>
+                <label >bidprice</label> <input id="l9"  type="text"><br>
+                <label >askprice</label> <input id="l10"  type="text"><br>
+                <label >at</label> <input id="l11"  type="text"><br>
+
+                <button class="b2">update</button>
+            <input type="text" id="text1">
+            
+        </div>
+
+    </body>
+    <script>
+        $(document).ready(function() {	
+            $.ajax({
+                async: true,
+                crossDomain: true,
+                url: "https://api.wazirx.com/sapi/v1/tickers/24hr",
+                method: "GET",
+                headers: {
+                    
+                },
+                beforeSend: function() {
+                    $("#datatable").html("loading...");
+            
+                },
+                success:  function (response) {
+                    let html = "";
+                const keys = Object.keys(response[0]);
+html += "<tr>";
+keys.forEach(element=>{
+    html += "<td>" + element +"</td>";
+
+})
+html += "</tr>";
+                    response.forEach(obj => {
+                        html += "<tr><td>"+obj["symbol"]+"</td>";
+                        html += "<td>"+obj["baseAsset"]+"</td>";
+                        // html += "<td>"+obj["quoteAsset"]+"</td>";
+                        if(obj["quoteAsset"] = "inr") {
+
+html += "<td><img src='https://cdn-icons-png.flaticon.com/128/3909/3909444.png' width='30' /><input type='hidden'value='"+obj["quoteAsset"]+"' /></td>";
+
+
+
+
+} else {
+     html += "<td><img src='https://cdn-icons-png.flaticon.com/128/197/197484.png' width='30' /><input type='hidden'  value='"+obj["quoteAsset"]+"'/></td>";}
+
+html += "<td>"+obj["openPrice"]+"</td>";
+
+html += "<td><p style='color: #FF0000'>"+obj["lowPrice"]+"</p></td>";
+
+html += "<td><p style='color: #006A00'>"+obj["highPrice"]+"</p></td>";
+                      
+                        html += "<td>"+obj["lastPrice"]+"</td>";
+                        html += "<td>"+obj["volume"]+"</td>";
+                        html += "<td>"+obj["bidPrice"]+"</td>";
+                        html += "<td>"+obj["askPrice"]+"</td>";
+                        html += "<td>"+obj["at"]+"</td>";
+                        html += "<td><button class='b1'>edit</button></td>";
+                        html += "</tr>";
+                    });
+                
+                let tabledata = $("#datatable").html();
+                $("#datatable").html(tabledata + html);
+                }
+            });
+
+
+        });
+       //on click of edit edit button data show in form
+       
+        $("#datatable").on("click", ".b1", function() {
+        //    let a= ($(this).parents('tr').children('td:eq(0)').text());
+        //    $('#l1').val(a);
+        $('#l1').val($(this).parents('tr').children('td:eq(0)').text());
+        $('#l2').val($(this).parents('tr').children('td:eq(1)').text());
+        $('#l3').val($(this).parents('tr').children('td:eq(2)').children('input').val());
+        $('#l4').val($(this).parents('tr').children('td:eq(3)').text());
+        $('#l5').val($(this).parents('tr').children('td:eq(4)').text());
+        $('#l6').val ($(this).parents('tr').children('td:eq(5)').text());
+        $('#l7').val  ($(this).parents('tr').children('td:eq(6)').text());
+        $('#l8').val($(this).parents('tr').children('td:eq(7)').text());
+        $('#l9').val ($(this).parents('tr').children('td:eq(8)').text());
+        $('#l10').val ($(this).parents('tr').children('td:eq(9)').text());
+        $('#l11').val($(this).parents('tr').children('td:eq(10)').text());
+        let index=  $(this).parents('tr').index();
+          $('#text1').val(index);
+        });
+
+        //on click of update button ,updated data shown in table
+        $(".b2").click(function()
+{
+         
+          let symbol=$('#l1').val();
+          let baseasset=$('#l2').val();
+          let quoteasset = $('#l3').val();
+          let openprice=$('#l4').val();
+          let lowprice=$('#l5').val();
+          let highprice=$('#l6').val();
+          let lastprice=$('#l7').val();
+          let volume =$('#l8').val();
+          let bidprice=$('#l9').val();
+          let askprice=$('#l10').val();
+          let at=$('#l11').val();
+          let indexvalue =$('#text1').val();
+
+          $("#datatable").children("tr:eq("+indexvalue+")").children("td:eq(0)").text(symbol);
+          $("#datatable").children("tr:eq("+indexvalue+")").children("td:eq(1)").text( baseasset);
+          $("#datatable").children("tr:eq("+indexvalue+")").children("td:eq(2)").text( quoteasset);
+          $("#datatable").children("tr:eq("+indexvalue+")").children("td:eq(3)").text( openprice);
+          $("#datatable").children("tr:eq("+indexvalue+")").children("td:eq(4)").text( lowprice);
+          $("#datatable").children("tr:eq("+indexvalue+")").children("td:eq(5)").text( highprice);
+          $("#datatable").children("tr:eq("+indexvalue+")").children("td:eq(6)").text( lastprice);
+          $("#datatable").children("tr:eq("+indexvalue+")").children("td:eq(7)").text(volume);
+          $("#datatable").children("tr:eq("+indexvalue+")").children("td:eq(8)").text( bidprice);
+          $("#datatable").children("tr:eq("+indexvalue+")").children("td:eq(9)").text( askprice);
+          $("#datatable").children("tr:eq("+indexvalue+")").children("td:eq(10)").text( at);
+      
+          
+
+            // $("#datatable").children("tr:eq()").children("td(0)")
+        });
+        
+        </script>
+</html>

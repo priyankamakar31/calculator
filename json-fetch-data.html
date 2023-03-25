@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <title>
+            json fetch data
+        </title></head>
+        <body>
+            <div id="demo"></div>
+        </body>
+        <script>
+          var xobj = new XMLHttpRequest();
+          
+          var response = "";
+      xobj.overrideMimeType("application/json");
+    xobj.open('GET', 'https://api.covidtracking.com/v1/us/daily.json', true); // Replace 'my_data' with the path to your file
+    xobj.onreadystatechange = function () {
+        if (xobj.readyState == 4 && xobj.status == "200") {
+            // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+            let html = "";  
+            response = JSON.parse(xobj.responseText);
+             console.log(response[0]);
+            html += "<table border=1>";
+                const keys = Object.keys(response[0]);
+// console.log(keys);
+html += "<tr>";
+keys.forEach(element=>{
+    html += "<td>" + element + "</td>";
+
+})
+html += "</tr>";
+              response.forEach(element => {
+            
+     
+                // html += "<table border=1>";
+                html += "<tr>";
+                html += "<td>" + element["date"] + "</td>";
+                html += "<td>"+element['states']+"</td>";
+                html += "<td>"+element['positive']+"</td>";
+                html += "<td>"+element['negative']+"</td>";
+                html += "<td>"+element['pending']+"</td>";
+                html += "<td>"+element['hospitalizedCurrently']+"</td>";
+                html += "<td>"+element['hospitalizedCumulative']+"</td>";
+                html += "<td>" + element["inIcuCurrently"] + "</td>";
+                html += "<td>" + element["inIcuCumulative"] + "</td>";
+                html += "<td>" + element["onVentilatorCurrently"] + "</td>";
+                html += "<td>" + element["onVentilatorCumulative"] + "</td>";
+                html += "<td>" + element["dateChecked"] + "</td>";
+                html += "<td>" + element["death"] + "</td>";
+                html += "<td>" + element["hospitalized"] + "</td>";
+                html += "<td>" + element["totalTestResults"] + "</td>";
+                html += "<td>" + element["lastModified"] + "</td>";
+                html += "<td>" + element["recovered"] + "</td>";
+                html += "<td>" + element["total"] + "</td>";
+                html += "<td>" + element["posNeg"] + "</td>";
+                html += "<td>" + element["deathIncrease"] + "</td>";
+                html += "<td>" + element["hospitalizedIncrease"] + "</td>";
+                html += "<td>" + element["negativeIncrease"] + "</td>";
+                html += "<td>" + element["positiveIncrease"] + "</td>";
+                html += "<td>" + element["totalTestResultsIncrease"] + "</td>";
+                html += "<td>" + element["hash"] + "</td>";
+
+                html += "<tr>";
+                // html += "</table>";
+            
+                
+                
+            });    
+             html += "</table>";
+            document.getElementById("demo").innerHTML = html;
+        }
+    };
+    xobj.send(null);
+    // console.log(html);      
+        
+       
+    
+  
+        </script>
+        </body>
+</html>
